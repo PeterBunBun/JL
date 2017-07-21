@@ -7,7 +7,7 @@ takehome
 In the PDF file given, I found that twitter username is given the range of 55 to 66 that renders `@elversatil` (without the ending 'e'), which makes no sense. Therefore, I've altered it to the range of 55 to 67 which renders `@elversatile` and have a '@' checking method built in to the Username class to verify the validity of a username
 
 ## Design document/explanation
-	** a. Input Object **
+	__a. Input Object__
 
 	For the sake of this takehomes's main purpsoe: decorate **ALL** of the word element, I design the input to be an object of the following `ProcessedTweet()` class to have the highest efficiency. In `ProcessedTweet()` class:
 
