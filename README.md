@@ -21,7 +21,7 @@ For the sake of this takehomes's main purpsoe: decorate **ALL** of the word elem
 
 **b. Element Class**
 
-`Element` is a super class for any current and future elements. Eg. Entity, Username, Link, and potentially hashtag. I designed the class to have the following methods:
+`Element` is a parent class for any current and future elements. Eg. Entity, Username, Link, and potentially hashtag. I designed the class to have the following methods:
 
 1. `setFullText()`: setter of the (private) variable `fullText`, Str
 2. `setText()`: setter of the (private) variable `text`, Str
@@ -34,17 +34,17 @@ For the sake of this takehomes's main purpsoe: decorate **ALL** of the word elem
 
 **c. Entity Class**
 
-Inherit from `Element` Class. Override the super class with 3 initial arguments. Set initial variables and implement `checkRange()` while constructing. Also, set the decorator to a `HtmlEntityDecorator` object as default while constructing.
+Inherit from `Element` Class. Override the parent class with 3 initial arguments. Set initial variables and implement `checkRange()` while constructing. Also, set the decorator to a `HtmlEntityDecorator` object as default while constructing.
 
 
 **d. Username Class**
 
-Inherit from `Element` Class. Override the super class with 3 initial arguments. Extend the super class with a method `checkAt()` to constrain/verify the format of a username. Set initial variables and implement `checkRange()` and `checkAt()` while constructing. Also, set the decorator to a `HtmlUsernameDecorator` object as default while constructing.
+Inherit from `Element` Class. Override the parent class with 3 initial arguments. Extend the parent class with a method `checkAt()` to constrain/verify the format of a username. Set initial variables and implement `checkRange()` and `checkAt()` while constructing. Also, set the decorator to a `HtmlUsernameDecorator` object as default while constructing.
 
 
 **e. Link Class**
 	
-Inherit from `Element` Class. Override the super class with 3 initial arguments. Set initial variables and implement `checkRange()` while constructing. Also, set the decorator to a `HtmlLinkDecorator` object as default while constructing.
+Inherit from `Element` Class. Override the parent class with 3 initial arguments. Set initial variables and implement `checkRange()` while constructing. Also, set the decorator to a `HtmlLinkDecorator` object as default while constructing.
 
 
 **f. Decorator Interface**
