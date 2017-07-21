@@ -11,12 +11,12 @@ In the PDF file given, I found that twitter username is given the range of 55 to
 
 For the sake of this takehomes's main purpsoe: decorate **ALL** of the word element, I design the input to be an object of the following `ProcessedTweet()` class to have the highest efficiency. In `ProcessedTweet()` class:
 
-**1.** `fullText`: A string containing the original full text
-**2.** `elements`: A list of tuples, eg. (starting index, ending index, element type). This list is designed to be a **min-heap**
+1. `fullText`: A string containing the original full text
+2. `elements`: A list of tuples, eg. (starting index, ending index, element type). This list is designed to be a **min-heap**
 
-**3.** `setFullText()`: A method to set the original text
-**4.** `appendElement()`: A method to append newly defined element into the list. Take **O(lgN)** time for each increment. 
-**5.** `popFrontElement()`: A method to get the element in the front of the original string (fullText).  The structure I used in the class is a min-heap so this method will pop the element one after another in accending order, ordered by starting index.
+3. `setFullText()`: A method to set the original text
+4. `appendElement()`: A method to append newly defined element into the list. Take **O(lgN)** time for each increment. 
+5. `popFrontElement()`: A method to get the element in the front of the original string (fullText).  The structure I used in the class is a min-heap so this method will pop the element one after another in accending order, ordered by starting index.
 
 
 
