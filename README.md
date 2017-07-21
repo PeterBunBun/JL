@@ -4,7 +4,7 @@ takehome
 
 ## Error that I found
 
-In the PDF file given, I found that twitter username is given the range of 55 to 66 that renders `@elversatil` (without the ending 'e'), which makes no sense. Therefore, I've altered it to the range of 55 to 67 which renders `@elversatile` and have a '@' checking method built in to the Username class to verify the validity of a username
+In the PDF file given, I found that twitter username is given the range of 55 to 66 that renders `@elversatil` (without the ending 'e'), which makes no sense. Therefore, I've altered it to the range of 55 to 67 which renders `@elversatile` and have an '@' checking method built in to the Username class to verify the validity of a username
 
 ## Design document/explanation
 **a. Input Object**
@@ -19,7 +19,7 @@ For the sake of this takehomes's main purpsoe: decorate **ALL** of the word elem
 5. `popFrontElement()`: A method to get the element in the front of the original string (fullText).  The structure I used in the class is a min-heap so this method will pop the element one after another in accending order, ordered by starting index.
 
 
-**b. Element Class*
+**b. Element Class**
 
 `Element` is a super class for any current and future elements. Eg. Entity, Username, Link, and potentially hashtag. I designed the class to have the following methods:
 
