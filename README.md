@@ -91,14 +91,15 @@ All other elements could and should implement from element class. One can overri
 
 	```
 	def __init__(self, originalText, start, end):
-
-		pass
+		
+		super(Entity, self).__init__()
+		pass  #Some other codes
 
 		d = HtmlLinkDecorator()
 		self.setDecorator(d)
 	```
 
-2. Changing the rule of an object Dynamically 
+2. Changing the rule of an object dynamically 
 
 	Simply use the setDecorator() method to change to decorater of the object.
 
