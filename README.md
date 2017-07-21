@@ -49,7 +49,7 @@ Inherit from `Element` Class. Override the super class with 3 initial arguments.
 
 **f. Decorator Interface**
 
-`Decorator` is an interface implemented by different kinds of syntex decorator. Eg. Html, or perhaps markdown...etc. For this takehome, I created only a `HtmlDecorator` class to implement the interface. However, this interface is designed to be be implemented by many other kinds of decorators in the future. For example, one could design a `class markdownDecorator()` to make the element bold in markdown syntax by decorating the element as "**text**" or "__text__". There are only 2 required method in this interface.
+`Decorator` is an interface implemented by different kinds of syntex decorator. Eg. Html, or perhaps markdown...etc. For this takehome, I created only a `HtmlDecorator` class to implement the interface. However, this interface is designed to be be implemented by many other kinds of decorators in the future. For example, one could design a class `MarkdownDecorator()` to make the element bold in markdown syntax by decorating the element as "**text**" or "__text__". There are only 2 required method in this interface.
 
 1. `setText()`: set the text to be decorated
 2. `decorate()`: return the decorated the text
@@ -80,7 +80,7 @@ Inherit from `HtmlDecorator` Class. Set the (private) variable tag to 'a' while 
 
 **a. Adding new Elements**
 
-All other elements could and should implement from `Element` class. One can override the `Element` class to have some default setting on newly designed element class. For example, one could design a `Markdown` class and set the default decorator to `markdownDecorator` object.
+All other elements could and should implement from `Element` class. One can override the `Element` class to have some default setting on newly designed element class. For example, one could design a `Markdown` class and set the default decorator to `MarkdownDecorator` object.
 
 
 **b. Changing Decorating Rule**
@@ -95,7 +95,7 @@ All other elements could and should implement from `Element` class. One can over
 		super(Entity, self).__init__()
 		pass  #Some other codes
 
-		d = markdownDecorator('bold')  #This markdownDecorator() class should be designed in advance
+		d = MarkdownDecorator('bold')  #This MarkdownDecorator() class should be designed in advance
 		self.setDecorator(d)
 	```
 	
