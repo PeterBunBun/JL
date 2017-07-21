@@ -83,7 +83,7 @@ Inherit from `HtmlDecorator` Class. Set the (private) variable tag to 'a' while 
 All other elements could and should implement from element class. One can override the Element class to have some default setting on newly designed element class. For example, one could design a markdown class and set the default decorator to markdownDecorator object.
 
 
-**b. Changing Decorating Rule Dynamically**
+**b. Changing Decorating Rule**
 
 1. Changing the rule of an element type 
 
@@ -98,7 +98,7 @@ All other elements could and should implement from element class. One can overri
 		self.setDecorator(d)
 	```
 
-2. Changing the rule of an bject 
+2. Changing the rule of an object Dynamically 
 
 	Simply use the setDecorator() method to change to decorater of the object.
 
