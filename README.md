@@ -49,7 +49,7 @@ Inherit from `Element` Class. Override the super class with 3 initial arguments.
 
 **f. Decorator Interface**
 
-`Decorator` is an interface implemented by different kinds of syntex decorator. Eg. Html, or perhaps markdown...etc. For this takehome, I created only a `HtmlDecorator` class to implement the interface. However, this interface is designed to be flexible and could be implemented by many other kinds of decorators in the future. For example, one could design a `class markdownDecorator()` to make the element bold in markdown syntax by decorating the element as "**text**" or "__text__". There are only 2 required method in this interface.
+`Decorator` is an interface implemented by different kinds of syntex decorator. Eg. Html, or perhaps markdown...etc. For this takehome, I created only a `HtmlDecorator` class to implement the interface. However, this interface is designed to be be implemented by many other kinds of decorators in the future. For example, one could design a `class markdownDecorator()` to make the element bold in markdown syntax by decorating the element as "**text**" or "__text__". There are only 2 required method in this interface.
 
 1. `setText()`: set the text to be decorated
 2. `decorate()`: return the decorated the text
@@ -80,14 +80,14 @@ Inherit from `HtmlDecorator` Class. Set the (private) variable tag to 'a' while 
 
 **a. Adding new Elements**
 
-All other elements could and should implement from element class. One can override the Element class to have some default setting on newly designed element class. For example, one could design a markdown class and set the default decorator to markdownDecorator object.
+All other elements could and should implement from `Element` class. One can override the `Element` class to have some default setting on newly designed element class. For example, one could design a `Markdown` class and set the default decorator to `markdownDecorator` object.
 
 
 **b. Changing Decorating Rule**
 
-1. Changing the rule of an element type 
+1. Changing the decorating rule of an element type 
 
-	To change the default decorating rule for a type, one could simply set the default decorator within the constructor of the element type class. For example, one could set the decorating rull of an Entity to the decorating rule of a Link. Inside the constructor of Entity class:
+	To change the default decorating rule for a type, one could simply set the default decorator within the constructor of the element type class. For example, one could set the decorating rull of an Entity from html style to the a markdwon style. Inside the constructor of Entity class:
 
 	```
 	def __init__(self, originalText, start, end):
@@ -95,11 +95,12 @@ All other elements could and should implement from element class. One can overri
 		super(Entity, self).__init__()
 		pass  #Some other codes
 
-		d = HtmlLinkDecorator()
+		d = markdownDecorator('bold')  #This markdownDecorator() class should be designed in advance
 		self.setDecorator(d)
 	```
+	
 
-2. Changing the rule of an object dynamically 
+2. Changing the decorating rule of an object dynamically 
 
 	Simply use the setDecorator() method to change to decorater of the object.
 
@@ -112,18 +113,18 @@ All other elements could and should implement from element class. One can overri
 
 **c. Adding new Syntax Decorating Rule**
 
-To add a new syntax decorating rule, one should implement a decorator from Decorator class
+To add a new syntax decorating rule, one should implement a decorator from `Decorator` interface
 
 
 **d. Add new Element-specific Actions**
 
-This is outside of the scope of this takehome; yet, this is the reason that I create a class for each type of element. In case that some day in the future, some other actions other than decoration is need, it's easier to extend my code and define actions for each type of data. For example, one could store the 'username' into the database by adding a method of storeToDatabase() to the Username class, and utilize it by using is as `username.storeToDatabase()` 
+This is outside of the scope of this takehome; yet, this is the reason that I create a class for each type of element. In case that some day in the future, some other actions other than decoration is need, it's easier to extend my code and define actions for each type of data. For example, one could store the 'username' into the database by adding a method of `storeToDatabase()` to the `Username` class, and utilize it by using is as `username.storeToDatabase()` 
 
-Another example is to shorten the link. One could add a method `shortUrl()` into the 'Link' class, and utilize it by `link.shortUrl()`.
+Another example is to shorten the link. One could add a method `shortUrl()` into the `Link` class, and utilize it by `link.shortUrl()`.
 
 Plain and simple.
 
-**e. Imaginary Senario: Add a new type 'hashtag'**
+**e. Imaginary Scenario: Add a new type 'hashtag'**
 
 1. Create a new decorator class, `HtmlHashtagDecorator`, inherited from `HtmlDecorator`. Override the `decorate()` method
 2. Create a new element class, `Hashtag`, configure and instantize `HtmlHashtagDecorator`, and set the default decorator of the class `Hashtag` to the instantized `HtmlHashtagDecorator` object
