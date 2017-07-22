@@ -147,6 +147,7 @@ Plain and simple.
 2. Setter and getter methods, eg. appendElement(), and popFrontElement() (provide protection to private variables)
 3. Interface design (prevent missing required methods)
 4. Behavior object design (provide prection to dynamic behavior changing)
+5. Static variable and method design (enforce consistency)
 
 
 
