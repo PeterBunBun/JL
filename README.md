@@ -27,24 +27,24 @@ For the sake of this takehomes's main purpsoe: decorate **ALL** of the word elem
 2. `setText()`: setter of the (private) variable `text`, Str
 3. `setStart()`: setter of the (private) variable `start`, INT
 4. `setEnd()`: setter of the (private) variable `end`, INT
-5. `setDecorator()`: setter of the (private) variable `decorator`, a Decorator object
+5. `setDecorator()`: static method that set the static variable `decorator`, and Decorator object
 6. `decorate()`: call the decorator object and return a decorated string
 7. `checkRange()`: check the validity of the range of start and end
 
 
 **c. Entity Class**
 
-Inherit from `Element` Class. Override the parent class with 3 initial arguments. Set initial variables and implement `checkRange()` while constructing. Also, set the decorator to a `HtmlEntityDecorator` object as default while constructing.
+Inherit from `Element` Class. Override the parent class with 3 initial arguments. Set initial variables and implement `checkRange()` while constructing. Also, set the static decorator to a `HtmlEntityDecorator` object as default while constructing. Override static function `setDecorator()`
 
 
 **d. Username Class**
 
-Inherit from `Element` Class. Override the parent class with 3 initial arguments. Extend the parent class with a method `checkAt()` to constrain/verify the format of a username. Set initial variables and implement `checkRange()` and `checkAt()` while constructing. Also, set the decorator to a `HtmlUsernameDecorator` object as default while constructing.
+Inherit from `Element` Class. Override the parent class with 3 initial arguments. Extend the parent class with a method `checkAt()` to constrain/verify the format of a username. Set initial variables and implement `checkRange()` and `checkAt()` while constructing. Also, set the static decorator to a `HtmlUsernameDecorator` object as default while constructing. Override static function `setDecorator()`
 
 
 **e. Link Class**
 	
-Inherit from `Element` Class. Override the parent class with 3 initial arguments. Set initial variables and implement `checkRange()` while constructing. Also, set the decorator to a `HtmlLinkDecorator` object as default while constructing.
+Inherit from `Element` Class. Override the parent class with 3 initial arguments. Set initial variables and implement `checkRange()` while constructing. Also, set the decorator to a `HtmlLinkDecorator` object as default while constructing. Override static function `setDecorator()`
 
 
 **f. Decorator Interface**
@@ -83,35 +83,45 @@ Inherit from `HtmlDecorator` Class. Set the (private) variable tag to 'a' while 
 All other elements could and should implement from `Element` class. One can override the `Element` class to have some default setting on newly designed element class. For example, one could design a `Markdown` class and set the default decorator to `MarkdownDecorator` object.
 
 
-**b. Changing Decorating Rule**
+**b. Changing Decorating Rule Dynamically**
 
-1. Changing the decorating rule of an element type 
+Since there should only be 1 set of decorating rule for each type of element throughout a single input object(tweet) conversion. I designed the decorator attribute to be static. To change the default decorating rule for an element type, one could simply use the static method `setDecorator()` given to every element class to set the decorator for the class. The change will appears on all existing and future instance(Assumed before the other alternation). For example,
 
-	To change the default decorating rule for a type, one could simply set the default decorator within the constructor of the element type class. For example, one could set the decorating rull of an Entity from html style to the a markdwon style. Inside the constructor of Entity class:
+```
+exampleEntity = Entity('sometext', 0, 4)
+print exampleEntity.decorate() #Using the default decorator
+```
+will output `<strong>some</strong>`
+Adding the following lines:
 
-	```
-	def __init__(self, originalText, start, end):
-		
-		super(Entity, self).__init__()
-		pass  #Some other codes
+```
+d = HtmlDecorator()
+d.setTag('div')
+Entity.setDecorator(d)
+print exampleEntity.decorate()  #Using the the d decorator(HtmlDecorator)
+```
 
-		d = MarkdownDecorator('bold')  #This MarkdownDecorator() class should be designed in advance
-		self.setDecorator(d)
-	```
+will output `<div>some</div>`
+And continue adding the following lines:
+
+```
+exampleEntity2 = Entity('helloworld', 0, 5)
+print exampleEntity2.decorate() #Using the the d decorator(HtmlDecorator)
+```
+
+will output `<div>hello</div>`
+
+Also, to expend even wider, one could even assign different syntax decorator to an element type. For example,
+
+
+```
+d = MarkdownDecorator('bold')  #This MarkdownDecorator() class should be designed elsewhere
+Entity.setDecorator(d)
+print exampleEntity.decorate()
+```
+
+this could output `**some**`
 	
-
-2. Changing the decorating rule of an object dynamically 
-
-	Simply use the setDecorator() method to change to decorater of the object.
-
-	```
-	exampleEntity = Entity('sometext', 0, 2)
-
-	d = HtmlLinkDecorator()
-	exampleEntity.setDecorator(d)
-	```
-
-**c. Adding new Syntax Decorating Rule**
 
 To add a new syntax decorating rule, one should implement a decorator from `Decorator` interface
 
