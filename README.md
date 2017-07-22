@@ -34,17 +34,30 @@ For the sake of this takehomes's main purpsoe: decorate **ALL** of the word elem
 
 **c. Entity Class**
 
-Inherit from `Element` Class. Override the parent class with 3 initial arguments. Set initial variables and implement `checkRange()` while constructing. Also, set the static decorator to a `HtmlEntityDecorator` object as default while constructing. Override static function `setDecorator()`
+1. Inherit from `Element` Class
+2. Override the parent class with 3 initial arguments
+3. Set initial variables and implement `checkRange()` while constructing
+4. Set the static decorator to a `HtmlEntityDecorator` instance
+5. Override static function `setDecorator()`
 
 
 **d. Username Class**
 
-Inherit from `Element` Class. Override the parent class with 3 initial arguments. Extend the parent class with a method `checkAt()` to constrain/verify the format of a username. Set initial variables and implement `checkRange()` and `checkAt()` while constructing. Also, set the static decorator to a `HtmlUsernameDecorator` object as default while constructing. Override static function `setDecorator()`
+1. Inherit from `Element` Class. 
+2. Override the parent class with 3 initial arguments. 
+3. Extend the parent class with a method `checkAt()` to constrain/verify the format of a username. 
+4. Set initial variables and implement `checkRange()` and `checkAt()` while constructing.
+5. Set the static decorator to a `HtmlUsernameDecorator` object as default while constructing.
+6. Override static function `setDecorator()`
 
 
 **e. Link Class**
 	
-Inherit from `Element` Class. Override the parent class with 3 initial arguments. Set initial variables and implement `checkRange()` while constructing. Also, set the decorator to a `HtmlLinkDecorator` object as default while constructing. Override static function `setDecorator()`
+1. Inherit from `Element` Class
+2. Override the parent class with 3 initial arguments
+3. Set initial variables and implement `checkRange()` while constructing
+4. Set the static decorator to a `HtmlLinkDecorator` instance
+5. Override static function `setDecorator()`
 
 
 **f. Decorator Interface**
@@ -134,10 +147,10 @@ Another example is to shorten the link. One could add a method `shortUrl()` into
 
 Plain and simple.
 
-**e. Imaginary Scenario: Add a new type 'hashtag'**
+**e. Imaginary Scenario: Add a new type 'hashtag' (In General Steps)**
 
 1. Create a new decorator class, `HtmlHashtagDecorator`, inherited from `HtmlDecorator`. Override the `decorate()` method
-2. Create a new element class, `Hashtag`, configure and instantize `HtmlHashtagDecorator`, and set the default decorator of the class `Hashtag` to the instantized `HtmlHashtagDecorator` object
+2. Create a new element class, `Hashtag`, configure and instantize `HtmlHashtagDecorator`, and set the default decorator of the class `Hashtag` to the instantized `HtmlHashtagDecorator` object. Override the static `setDecorator()` method
 3. Configure and instantize `Hashtag`, get the output by `hashtag.decorate()`
 
 
