@@ -47,7 +47,7 @@ For the sake of this takehomes's main purpsoe: decorate **ALL** of the word elem
 2. Override the parent class with 3 initial arguments. 
 3. Extend the parent class with a method `checkAt()` to constrain/verify the format of a username. 
 4. Set initial variables and implement `checkRange()` and `checkAt()` while constructing.
-5. Set the static decorator to a `HtmlUsernameDecorator` object as default while constructing.
+5. Set the static decorator to a `HtmlUsernameDecorator` instance
 6. Override static function `setDecorator()`
 
 
